@@ -11,8 +11,19 @@
 <?php
 
 $my = 123;
+$a = '55';
+$b = 'abc';
+echo $my + $a; // + 只做數值相加
+echo '<br>';
+echo $a.$b; //字串相加要用 .
+echo '<br>';
 
-echo $my;
+$c = 'Shinder';
+echo 'My name is $c<br>'; //單引號會呈現原本的內容
+echo "My name is $c<br>"; //雙引號會把變數用變數值取代
+echo "My name is {$c}<br>";
+echo "My name is ${c}<br>";
+echo "My name is $c123<br>"; //notice
 
 ?>
 </body>
