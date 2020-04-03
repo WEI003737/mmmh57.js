@@ -20,7 +20,6 @@ $data = array(
     array("8175133", "3792621", "2695598", "2100263", "1526006", "1445632", "1327407", "1307402", "1197816", "945942"));
 
 $data2 = [["New York", "NY", "8175133"],["Los Angeles", "CA", "3792621"],["Chicago", "IL", "2695598"],["Houston", "TX", "2100263"],["Philadelphia", "PA", "1526006"],["Phoenix", "AZ", "1445632"],["San Antonio", "TX", "1327407"],["San Diego", "CA", "1307402"],["Dallas", "TX", "1197816"],["San Jose", "CA", "945942"]];
-
 $data3 = array("New York" => array("state" => "NY",
             "pop" => "8175133"),
     "Los Angeles" => array("state" => "CA",
