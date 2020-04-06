@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?= isset($title) ? $title.' - ': '' ?>Document</title>
     <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.css">
     <script src="../jquery-3.4.1.min.js"></script>
     <script src="../bootstrap-4.4.1-dist/js/bootstrap.bundle.js"></script>
