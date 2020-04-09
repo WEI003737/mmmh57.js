@@ -10,12 +10,12 @@ $page_name = 'data-insert2';
         }
     </style>
     <div class="container">
-                <div id="info-bal" class="alert alert-success" role="alert" style="display: none">
+                <div id="info-bar" class="alert alert-success" role="alert" style="display: none">
                     123
                 </div>
         <div class="row">
             <div class="col">
-                <form class="from1" method="post" onsubmit="return checkForm()" novalidate>
+                <form name="form1" method="post" onsubmit="return checkForm()" novalidate>
                     <div class="form-group">
                         <label for="item_name">item_name</label>
                         <!-- 可以下pattern屬性驗證輸入的格式-->
@@ -44,45 +44,50 @@ $page_name = 'data-insert2';
 
     </div>
     </div>
+<?php include __DIR__ . '/part/scripts.php'; ?>
     <script>
         const $item_name = $("#item_name"),
             $item_num = $("#item_num"),
             $color = $("#color"),
-            $color_num = $("#color_num");
-
-        $item_name_help = $("#item_name_help");
-        $item_num_help = $("#item_num_help");
+            $color_num = $("#color_num"),
+            $item_name_help = $("#item_name_help"),
+            $item_num_help = $("#item_num_help");
 
         function checkForm(){
-            let isPass = true;
-
-            $item_name.css('border-color', 'red');
+            let isPass = true; //有沒有通過檢查
+            //回復提示設定
+            $("#info-bar").hide();
+            $item_name.css('border-color', '#ccc');
             $item_name_help.text('');
 
-            $item_num.css('border-color', 'red');
+            $item_num.css('border-color', '#ccc');
             $item_num_help.text('');
 
 
-            if($item_name.val().length < 2){
+            if($item_name.val().length < 1){
                 $item_name.css('border-color', 'red');
                 $item_name_help.text('請填寫商品類別');
                 isPass = false;
             }
-            if($item_num.val().length < 2){
+            if($item_num.val().length < 1){
                 $item_num.css('border-color', 'red');
                 $item_num_help.text('請填寫商品編號');
                 isPass = false;
             }
-            return false;
-        }
 
-        if(isPass){
-            $.post('data_insert_api.php', $(document.form1).serialize(), function (data){
-            }, 'json');
-        }
+
+            if(isPass){
+                $.post('data_insert_api.php', $(document.form1).serialize(), function (data){
+                    if(data.success){
+                        $('#info-bar').show().text('新增成功');
+                    } else {
+
+                    }
+                }, 'json');
+            }
 
         return false;
-
+        }
 
     </script>
 <?php include __DIR__ . '/part/footer.php' ?>

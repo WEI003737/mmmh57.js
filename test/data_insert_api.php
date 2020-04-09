@@ -9,6 +9,8 @@ $output = [
 
 if(isset($_POST['item_name']) and isset($_POST['item_num'])){
     // TODO: 欄位資料檢查
+
+
     $sql = "INSERT INTO `product_top`(
 `item_name`, `item_num`, `color`, `color_num`, `creat_date`
 ) VALUES (?,?,?,?, NOW())";

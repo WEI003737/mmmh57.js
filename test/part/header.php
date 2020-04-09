@@ -7,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= isset($title) ? $title.' - ': '' ?>Document</title>
     <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.css">
-    <script src="../jquery-3.4.1.min.js"></script>
-    <script src="../bootstrap-4.4.1-dist/js/bootstrap.bundle.js"></script>
-    <script src="../fontawesome-free-5.13.0-web/js/all.min.js"></script>
+
 </head>
 <body>
