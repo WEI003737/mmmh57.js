@@ -54,21 +54,35 @@ $stmt = $pdo->query($sql);
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
+                <th scope="col"><i class="fas fa-trash-alt"></i></th>
                 <th scope="col">#</th>
                 <th scope="col">item_name</th>
                 <th scope="col">item_num</th>
                 <th scope="col">color</th>
                 <th scope="col">color_num</th>
+                <th scope="col"><i class="fas fa-edit"></i></th>
+
             </tr>
             </thead>
             <tbody>
             <?php while ($row = $stmt->fetch()): ?>
                 <tr>
+                    <td>
+                        <a href="data_delete.php?sid=<?= $row['sid'] ?>">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
                     <td><?= strip_tags($row['sid']); ?></td>
                     <td><?= strip_tags($row['item_name']); ?></td>
                     <td><?= strip_tags($row['item_num']); ?></td>
                     <td><?= strip_tags($row['color']); ?></td>
                     <td><?= strip_tags($row['color_num']); ?></td>
+                    <td>
+                        <a href="data_delete.php?sid=<?= $row['sid'] ?>">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+
                 </tr>
             <?php endwhile; ?>
             </tbody>
