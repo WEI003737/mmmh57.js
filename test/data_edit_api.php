@@ -3,6 +3,7 @@ require  __DIR__ . '/__connect_db.php';
 
 //回應的資料型態為JSON
 header('Content-Type: application/json');
+// mime type 預設為 text/html
 
 $output = [
   'success' => false,
@@ -11,13 +12,19 @@ $output = [
   'postData' => $_POST
 ];
 
-if(isset($_POST['item_name']) and isset($_POST['item_num'])){
+$sid = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
+if(empty($sid)){
+    echo json_encode($output, JSON_UNESCAPED_UNICODE);
+    exit;
+};
+
+
     // TODO: 欄位資料檢查
 
     //檢查item_num有沒有重複
-    $e_sql = "SELECT 1 FROM product_top WHERE item_num=?";
+    $e_sql = "SELECT 1 FROM product_top WHERE item_num=? AND sid<>?";
     $e_stmt = $pdo->prepare($e_sql);
-    $e_stmt->execute([$_POST['email']]);
+    $e_stmt->execute([$_POST['item_num'], $sid]);
 
     if($e_stmt->rowCount()){
         $output['error'] = 'item_num 重複了';
@@ -33,9 +40,8 @@ if(isset($_POST['item_name']) and isset($_POST['item_num'])){
         exit;
     }; */
 
-    $sql = "INSERT INTO `product_top`(
-`item_name`, `item_num`, `color`, `color_num`, `creat_date`
-) VALUES (?,?,?,?, NOW())";
+    $sql = "UPDATE  `product_top` SET `item_name`=?, `item_num`=?, `color`=?, `color_num`=?
+WHERE sid=?";
 
     $stmt = $pdo->prepare($sql);
 
@@ -44,14 +50,15 @@ if(isset($_POST['item_name']) and isset($_POST['item_num'])){
         $_POST['item_num'],
         $_POST['color'],
         $_POST['color_num'],
+        $sid
     ]);
 
     if($stmt->rowCount() == 1){
         $output['success'] = true;
         $output['error'] = '';
     }else {
-        $output['error'] = '資料無法新增';
+        $output['error'] = '資料沒有修改';
     };
-}
+
 
 echo json_encode($output, JSON_UNESCAPED_UNICODE);

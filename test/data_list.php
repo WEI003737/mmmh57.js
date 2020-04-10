@@ -81,7 +81,7 @@ $stmt = $pdo->query($sql);
                     <td><?= strip_tags($row['color']); ?></td>
                     <td><?= strip_tags($row['color_num']); ?></td>
                     <td>
-                        <a href="data_delete.php?sid=<?= $row['sid'] ?>">
+                        <a href="data_edit.php?sid=<?= $row['sid'] ?>">
                             <i class="fas fa-edit"></i>
                         </a>
                     </td>
