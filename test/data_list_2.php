@@ -43,13 +43,13 @@ $page_name = 'data-list2';
             </tr>
             </thead>
             <tbody class="data-tbody">
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                </tr>-->
             </tbody>
         </table>
     </div>
@@ -66,15 +66,69 @@ $page_name = 'data-list2';
     const pagination = $(".pagination"),
         tbody = $(".data-tbody");
 
+    const escapeTag = str =>{
+        return str.split('&').join('&amp;').split('<').join('&lt;').split('>').join('&gt;')
+    };
+
+    const itemTpl = o =>{
+        console.log('o:', o)
+        return`
+            <tr>
+                <td>${escapeTag(o.sid)}</td>
+                <td>${escapeTag(o.item_name)}</td>
+                <td>${escapeTag(o.item_num)}</td>
+                <td>${escapeTag(o.color)}</td>
+                <td>${escapeTag(o.color_num)}</td>
+            </tr>`;
+    };
+
+    const paginationTpl = (obj) =>{
+        //{active:true, page:2}
+      return`
+        <li class="page-item ${obj.active ? 'active' : ''}">
+            <a class="page-link" href="#${obj.page}">${obj.page}</a>
+        </li>
+      `;
+    };
+
     function getDataByPage(page=1) {
         $.get('data_list_2_api.php', {page:page}, function(data){
             console.log(data)
+            //頁碼 ---
+            let pStr = '';
+            for(let i=1; i<=data.totalPages; i++){
+                pStr += paginationTpl({
+                    active: page===i,
+                    page: i
+                })
+            }
+            pagination.html(pStr);
+
+            //資料表格 ---
+            let tStr = '';
+            for(let i=0; i<data.rows.length; i++){
+                let item = data.rows[i];
+                // console.log(item)
+                tStr += itemTpl(item)
+            }
+            tbody.html(tStr);
         }, 'json')
 
     };
 
-    getDataByPage();
+    function whenHashChange(){
+        let hashStr = location.hash.slice(1);
+        let page = parseInt(hashStr);
 
+        if(page){
+            getDataByPage(page);
+        }else {
+            getDataByPage(1);
+        }
+    };
+
+    window.addEventListener("hashchange", whenHashChange);
+    whenHashChange();
 
 </script>
 
