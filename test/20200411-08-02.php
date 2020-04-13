@@ -9,21 +9,31 @@ $output = [
     'postData' => $_POST
 ];
 
+
+$min_price = isset($_POST['min_price']) ? intval($_POST['min_price']) : 0;
+
+
+var_dump($min_price);
+$sql = "SELECT * FROM dishes WHERE price >=$min_price ORDER BY price ";
+$stmt = $pdo -> prepare($sql);
+$stmt -> execute([]);
+/*
+
 if(isset($_POST['min_price'])){
 
     $min_price = filter_input(INPUT_POST, 'min_price', FILTER_VALIDATE_INT);
 
-    if($min_price == 0){
-        echo $output['error'];
-        exit;
-    }
+//    if($min_price == 0){
+//        echo $output['error'];
+//        exit;
+//    }
 
     $sql = 'SELECT * FROM dishes WHERE price >=? ORDER BY price ';
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute(array($min_price));
 
 }
-
+*/
 
 ?>
 
