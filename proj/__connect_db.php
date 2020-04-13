@@ -19,3 +19,6 @@ try{
     echo 'Ex:'. $ex->getMessage();
 }
 
+if(! isset($_SESSION)){
+    session_start();
+}

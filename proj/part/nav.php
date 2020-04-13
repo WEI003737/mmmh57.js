@@ -1,3 +1,8 @@
+<?php
+if(! isset($page_name)){
+    $page_name = '';
+}
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>
@@ -21,14 +26,26 @@
                     <a class="nav-link" href="data_list_2.php">資料列表2 ajax</a>
                 </li>
             </ul>
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item <?= $page_name=='longin' ? 'active' : '' ?>">
-                    <a class="nav-link" href="login.php">登入</a>
-                </li>
-                <li class="nav-item <?= $page_name=='registration' ? 'active' : '' ?>">
-                    <a class="nav-link" href="registration.php">註冊</a>
-                </li>
-
+            <ul class="navbar-nav">
+                <?php //print_r($_SESSION['loginUser'])  ?>
+                <?php if(isset($_SESSION['loginUser'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link"><?= $_SESSION['loginUser']['nickname'] ?></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">修改會員資料</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="">登出</a>
+                    </li>
+                <?php else:  ?>
+                    <li class="nav-item <?= $page_name=='login' ? 'active' : '' ?>">
+                        <a class="nav-link" href="login.php">登入</a>
+                    </li>
+                    <li class="nav-item <?= $page_name=='register' ? 'active' : '' ?>">
+                        <a class="nav-link" href="register.php">註冊</a>
+                    </li>
+                <?php endif;  ?>
             </ul>
         </div>
     </div>
