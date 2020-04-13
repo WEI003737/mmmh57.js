@@ -35,29 +35,47 @@ $page_name = 'data-list2';
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th scope="col"><i class="fas fa-trash-alt"></i></th>
                 <th scope="col">#</th>
                 <th scope="col">item_name</th>
                 <th scope="col">item_num</th>
                 <th scope="col">color</th>
                 <th scope="col">color_num</th>
-                <th scope="col"><i class="fas fa-edit"></i></th>
-
             </tr>
             </thead>
-            <tbody>
-            <!--
+            <tbody class="data-tbody">
                 <tr>
-                    <td><?= strip_tags($row['sid']); ?></td>
-                    <td><?= strip_tags($row['item_name']); ?></td>
-                    <td><?= strip_tags($row['item_num']); ?></td>
-                    <td><?= strip_tags($row['color']); ?></td>
-                    <td><?= strip_tags($row['color_num']); ?></td>
-                </tr> -->
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tbody>
         </table>
     </div>
     </div>
 <?php include __DIR__ . '/part/scripts.php' ?>
+<script>
+    /*
+    運作的流程 steps
+    1.取得資料 (包成function)
+    2.生頁碼列的按鈕
+    3.生資料表格
+    */
+
+    const pagination = $(".pagination"),
+        tbody = $(".data-tbody");
+
+    function getDataByPage(page=1) {
+        $.get('data_list_2_api.php', {page:page}, function(data){
+            console.log(data)
+        }, 'json')
+
+    };
+
+    getDataByPage();
+
+
+</script>
 
 <?php include __DIR__ . '/part/footer.php' ?>

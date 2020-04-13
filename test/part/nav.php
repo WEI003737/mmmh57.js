@@ -17,8 +17,8 @@
                 <li class="nav-item <?= $page_name=='data-insert2' ? 'active' : '' ?>">
                     <a class="nav-link" href="data_insert2.php">新增資料2 ajax</a>
                 </li>
-                <li class="nav-item <?= $page_name=='data-insert2' ? 'active' : '' ?>">
-                    <a class="nav-link" href="data_insert2.php">資料列表2 ajax</a>
+                <li class="nav-item <?= $page_name=='data-list2' ? 'active' : '' ?>">
+                    <a class="nav-link" href="data_list_2.php">資料列表2 ajax</a>
                 </li>
             </ul>
         </div>
