@@ -13,7 +13,7 @@ switch ($_FILES['myfiles']['type']){
         $ext = '.jpg';
         break;
     case 'images/png':
-        $ext = '.png';    
+        $ext = '.png';
 };
 
 if(empty($ext)){
