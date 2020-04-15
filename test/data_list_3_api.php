@@ -3,6 +3,7 @@ require __DIR__ . '/__connect_db.php';
 
 $perPage = 5;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$keyword = isset($_GET['keyword'])
 
 //取得總筆數
 $totalRows = $pdo->query("SELECT COUNT(1) FROM `product_top`")->fetch(PDO::FETCH_NUM)[0];

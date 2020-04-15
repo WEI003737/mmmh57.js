@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/__connect_db.php';
-$page_name = 'data-list2';
+$page_name = 'data-list3';
 ?>
 
 <?php include __DIR__ . '/part/header.php' ?>
