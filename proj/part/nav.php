@@ -13,18 +13,15 @@ if(! isset($page_name)){
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item <?= $page_name=='data-list' ? 'active' : '' ?>">
-                    <a class="nav-link" href="data_list.php">資料列表</a>
+                <li class="nav-item <?= $page_name=='product_list' ? 'active' : '' ?>">
+                    <a class="nav-link" href="product_list.php">資料列表</a>
                 </li>
-                <li class="nav-item <?= $page_name=='data-insert' ? 'active' : '' ?>">
-                    <a class="nav-link" href="data_insert.php">新增資料</a>
+                <li class="nav-item <?= $page_name=='cart_list.php' ? 'active' : '' ?>">
+                    <a class="nav-link" href="cart_list.php">購物車
+                        <span class="badge badge-pill badge-info cart-count">0</span></a>
+                    </a>
                 </li>
-                <li class="nav-item <?= $page_name=='data-insert2' ? 'active' : '' ?>">
-                    <a class="nav-link" href="data_insert2.php">新增資料2 ajax</a>
-                </li>
-                <li class="nav-item <?= $page_name=='data-list2' ? 'active' : '' ?>">
-                    <a class="nav-link" href="data_list_2.php">資料列表2 ajax</a>
-                </li>
+
             </ul>
             <ul class="navbar-nav">
                 <?php //print_r($_SESSION['loginUser'])  ?>
