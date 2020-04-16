@@ -63,7 +63,7 @@ if(!empty($pKeys)){
                       總計: <span id="totalAmount"></span>
                 </div>
                 <?php if(isset($_SESSION['loginUser'])): ?>
-                    <a href="save-orders.php" class="btn btn-success">結帳</a>
+                    <a href="save_orders.php" class="btn btn-success">結帳</a>
                 <?php else: ?>
                     <div class="alert alert-danger" role="alert">
                         請先登入會員再結帳
