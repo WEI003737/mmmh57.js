@@ -55,5 +55,5 @@ if(isset($_POST['email']) and isset($_POST['name']) and isset($_POST['mobile']) 
         $output['error'] = '資料無法新增';
     };
 }
-
+// JSON_UNESCAPED_UNICODE => 有中文最打一下 (除錯方便)
 echo json_encode($output, JSON_UNESCAPED_UNICODE);

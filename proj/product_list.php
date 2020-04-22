@@ -14,6 +14,7 @@ if(! empty($cate)){
 }
 
 //總筆數
+// COUNT 查詢資料不為空值的行數
 $t_sql = "SELECT COUNT(1) FROM products $where ";
 $totalRows = $pdo->query($t_sql)->fetch(PDO::FETCH_NUM)[0];
 

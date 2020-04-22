@@ -109,6 +109,7 @@ $page_name = 'register';
                 $.post('register_api.php', $(document.form1).serialize(), function (data){
                     if(data.success){
                         $('#info-bar').show().text('新增成功');
+                        console.log(data)
                         setTimeout(function(){
                             location.href = 'index_.php';
                         }, 1000);
