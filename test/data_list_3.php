@@ -23,6 +23,7 @@ $page_name = 'data-list3';
             <div class="col">
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
+
                     </ul>
                 </nav>
             </div>
@@ -41,6 +42,7 @@ $page_name = 'data-list3';
                 </tr>
                 </thead>
                     <tbody class="data-tbody">
+
                 </tbody>
             </table>
             </div>
