@@ -33,7 +33,7 @@ $page_name = 'login';
         </div>
 
     </div>
-    </div>
+
 <?php include __DIR__ . '/part/scripts.php'; ?>
     <script>
         const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
