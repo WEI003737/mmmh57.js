@@ -33,7 +33,7 @@ if(! isset($page_name)){
                         <a class="nav-link" href="">修改會員資料</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="login.php">登出</a>
+                        <a class="nav-link" href="logout_api.php">登出</a>
                     </li>
                 <?php else:  ?>
                     <li class="nav-item <?= $page_name=='login' ? 'active' : '' ?>">

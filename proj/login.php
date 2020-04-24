@@ -47,7 +47,7 @@ $page_name = 'login';
                             location.href = 'index_.php';
                         }, 1000);
                     } else {
-                        $('#info-bar').show().text('帳號或密碼錯誤');
+                        $('#info-bar').show().text('請輸入正確的帳號以及密碼');
                     }
                 }, 'json');
 
